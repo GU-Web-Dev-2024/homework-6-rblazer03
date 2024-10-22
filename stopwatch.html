@@ -12,14 +12,14 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
-        $(window).ready(function () {
+        window.onload = function () {
             var seconds = "00";
             var tens = "00";
-            var $appendTens = jQuery(document.getElementByI("tens"));
-            var $appendSeconds = jQuery(document.getElementByI("seconds"));
-            var $buttonStart = jQuery(document.getElementByI('button-start'));
-            var $buttonStop = jQuery(document.getElementByI('button-stop'));
-            var $buttonReset = jQuery(document.getElementByI('button-reset'));
+            var $appendTens = jQuery(document.getElementById("tens"));
+            var $appendSeconds = jQuery(document.getElementById("seconds"));
+            var $buttonStart = jQuery(document.getElementById('button-start'));
+            var $buttonStop = jQuery(document.getElementById('button-stop'));
+            var $buttonReset = jQuery(document.getElementById('button-reset'));
             var interval;
 
             $buttonStart.click(function () {
