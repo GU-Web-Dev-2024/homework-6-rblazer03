@@ -70,7 +70,7 @@
                 borderRadius: "20px",
                 marginTop: "10px",
                 textAlign: "center",
-                fontSize: "large",
+                fontSize: "25px",
                 color: "white",
                 backgroundColor: "chocolate"
             });
@@ -84,6 +84,17 @@
             });
             $("#button-reset").on("click", function() {
                 $("#timer").css("background-color", "chocolate");
+            });
+
+            // style buttons/add class name
+            $("#button-start").addClass("controls");
+            $("#button-stop").addClass("controls");
+            $("#button-reset").addClass("controls");
+            $(".controls").css({
+                backgroundColor: "black",
+                color: "white",
+                fontSize: "15px",
+                borderRadius: "50%"
             });
 
         });
