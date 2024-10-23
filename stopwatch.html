@@ -74,6 +74,17 @@
                 color: "white",
                 backgroundColor: "chocolate"
             });
+            $("#button-start").on("click", function() {
+                $("#timer").css("background-color", "green");
+            });
+            $("#button-stop").on("click", function() {
+                if( !($("#tens").text() === "00" && $("#seconds").text() === "00") ){
+                    $("#timer").css("background-color", "red");
+                }
+            });
+            $("#button-reset").on("click", function() {
+                $("#timer").css("background-color", "chocolate");
+            });
 
         });
     </script>
