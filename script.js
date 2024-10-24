@@ -1,4 +1,6 @@
 $(window).ready(function () {
+    var cssFile = $.ajax({ type:'GET', url:'https://gu-web-dev-2024.github.io/homework-6-rblazer03/style.css', dataType:'text' });
+
     var seconds = "00";
     var tens = "00";
     var $appendTens = $('#tens');
