@@ -1,7 +1,10 @@
 <!-- 
-    HW6 Starter code
-     Modified from: https://codepen.io/cathydutton/pen/GBcvo
-    -->
+    Name: Rebekah Blazer
+    Class Name: Web Dev
+    Assignment: HW 6
+    Last Modified: 10/23/2024
+    Modified from: https://codepen.io/cathydutton/pen/GBcvo and HW6 Starter code
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +20,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
     <script>
         $(window).ready(function () {
             var seconds = "00";
@@ -29,73 +33,6 @@
             var $timer = jQuery(document.getElementById('timer'));
             var interval;
             var animateTimer;
-
-            $buttonStart.click(function () {
-                clearInterval(interval);
-                interval = setInterval(startTimer, 10);
-                
-                // animate timer
-                $timer.css("background-color", "#69C39C");
-                clearInterval(animateTimer);
-                $timer.animate({opacity: '0.5'}, 1000);
-                $timer.animate({opacity: '1.0'}, 1000);
-                animateTimer = setInterval(timerAnimation, 2000);
-            });
-
-            $buttonStop.click(function () {
-                clearInterval(interval);
-
-                // stop animation
-                if( !($("#tens").text() === "00" && $("#seconds").text() === "00") ){
-                    clearInterval(animateTimer);
-                    $timer.stop();
-                    $timer.css("opacity", '1.0');
-                    $timer.css("background-color", "#CC5144");
-                }
-            });
-
-            $buttonReset.click(function () {
-                clearInterval(interval);
-                tens = "00";
-                seconds = "00";
-                $appendTens.text(tens);
-                $appendSeconds.text(seconds);
-
-                // stop animation
-                clearInterval(animateTimer);
-                $timer.stop();
-                $timer.css("opacity", '1.0');
-                $timer.css("background-color", "#F9974E");
-            });
-
-            function startTimer() {
-                tens++;
-
-                if (tens < 9) {
-                    $appendTens.text("0" + tens);
-                }
-
-                if (tens > 9) {
-                    $appendTens.text(tens);
-
-                }
-
-                if (tens > 99) {
-                    console.log("seconds");
-                    seconds++;
-                    $appendSeconds.text("0" + seconds);
-                    tens = 0;
-                    $appendTens.text("0" + 0);
-                }
-
-                if (seconds > 9) {
-                    $appendSeconds.text(seconds);
-                }
-            }
-            function timerAnimation(){
-                $timer.animate({opacity: '0.5'}, 1000);
-                $timer.animate({opacity: '1.0'}, 1000);
-            }
 
             $("body").css({
                 fontFamily: "Homemade Apple",
