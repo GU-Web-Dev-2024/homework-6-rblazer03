@@ -1,4 +1,3 @@
-// script.js
 $(window).ready(function () {
     var seconds = "00";
     var tens = "00";
@@ -10,6 +9,18 @@ $(window).ready(function () {
     var $timer = $('#timer');
     var interval;
     var animateTimer;
+
+    // Load the CSS file using AJAX
+    $.ajax({
+        url: "styles.css",
+        dataType: "text",
+        success: function(data) {
+            $("<style>").text(data).appendTo("head");
+        },
+        error: function() {
+            console.error("Could not load CSS file.");
+        }
+    });
 
     $buttonStart.click(function () {
         clearInterval(interval);
