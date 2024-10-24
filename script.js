@@ -10,17 +10,17 @@ $(window).ready(function () {
     var interval;
     var animateTimer;
 
-    // Load the CSS file using AJAX
-    $.ajax({
-        url: "styles.css",
-        dataType: "text",
-        success: function(data) {
-            $("<style>").text(data).appendTo("head");
-        },
-        error: function() {
-            console.error("Could not load CSS file.");
-        }
-    });
+    // Load the CSS file using AJAX (doesn't work, needs CORS)
+    // $.ajax({
+    //     url: "style.css",
+    //     dataType: "text",
+    //     success: function(data) {
+    //         $("<style>").text(data).appendTo("head");
+    //     },
+    //     error: function() {
+    //         console.error("Could not load CSS file.");
+    //     }
+    // });
 
     $buttonStart.click(function () {
         clearInterval(interval);
@@ -80,4 +80,61 @@ $(window).ready(function () {
         $timer.animate({opacity: '0.5'}, 1000);
         $timer.animate({opacity: '1.0'}, 1000);
     }
+
+    // css section
+    $("body").css({
+        fontFamily: "Homemade Apple",
+        fontWeight: "400",
+        fontStyle: "normal",
+        color: "white",
+        backgroundColor: "#FAD793"
+    });
+    
+    $(".wrapper").css({
+        display: "grid",
+        justifyContent: "center",
+        flexDirection: "column",
+        marginTop: "20px",
+        backgroundColor: "#263F3B",
+        borderRadius: "50px",
+        border: "10px solid #F9974E"
+    });
+
+    $("h1").css({
+        fontSize: "35px",
+        marginLeft: "65px"
+    });
+
+
+    // add css to timer
+    $("#timer").css({
+        padding: "10px",
+        paddingLeft: "200px",
+        paddingRight: "200px",
+        borderRadius: "20px",
+        marginTop: "10px",
+        textAlign: "center",
+        fontSize: "30px",
+        color: "white",
+        backgroundColor: "#F9974E"
+        
+    });
+    
+    // style buttons/add class name
+    $("#button-start").addClass("controls");
+    $("#button-stop").addClass("controls");
+    $("#button-reset").addClass("controls");
+
+    $(".controls").css({
+        backgroundColor: "black",
+        color: "white",
+        fontSize: "20px",
+        marginBottom: "20px",
+        borderRadius: "50%",
+        fontFamily: "Homemade Apple",
+        fontWeight: "400",
+        fontStyle: "normal",
+        marginLeft: "65px",
+        border: "5px solid #F9974E"
+    });
 });
