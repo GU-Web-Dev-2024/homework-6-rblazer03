@@ -23,12 +23,12 @@
             var $timer = jQuery(document.getElementById('timer'));
             var interval;
             var animateTimer;
-            var running;
 
             $buttonStart.click(function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
                 
+                // animate timer
                 $timer.css("background-color", "green");
                 clearInterval(animateTimer);
                 $timer.animate({opacity: '0.5'}, 1000);
@@ -39,9 +39,8 @@
             $buttonStop.click(function () {
                 clearInterval(interval);
 
+                // stop animation
                 if( !($("#tens").text() === "00" && $("#seconds").text() === "00") ){
-                    //$timer.stop();
-                    $timer.stop();
                     clearInterval(animateTimer);
                     $timer.stop();
                     $timer.css("opacity", '1.0');
@@ -56,7 +55,7 @@
                 $appendTens.text(tens);
                 $appendSeconds.text(seconds);
 
-                $timer.stop();
+                // stop animation
                 clearInterval(animateTimer);
                 $timer.stop();
                 $timer.css("opacity", '1.0');
@@ -92,7 +91,7 @@
                 $timer.animate({opacity: '1.0'}, 1000);
             }
 
-            // css starts
+            // add css to timer
             $("#timer").css({
                 padding: "10px",
                 borderRadius: "20px",
@@ -107,6 +106,7 @@
             $("#button-start").addClass("controls");
             $("#button-stop").addClass("controls");
             $("#button-reset").addClass("controls");
+
             $(".controls").css({
                 backgroundColor: "black",
                 color: "white",
