@@ -9,6 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HW6 - JQuery</title>
+
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
@@ -29,7 +35,7 @@
                 interval = setInterval(startTimer, 10);
                 
                 // animate timer
-                $timer.css("background-color", "green");
+                $timer.css("background-color", "#69C39C");
                 clearInterval(animateTimer);
                 $timer.animate({opacity: '0.5'}, 1000);
                 $timer.animate({opacity: '1.0'}, 1000);
@@ -44,7 +50,7 @@
                     clearInterval(animateTimer);
                     $timer.stop();
                     $timer.css("opacity", '1.0');
-                    $timer.css("background-color", "red");
+                    $timer.css("background-color", "#CC5144");
                 }
             });
 
@@ -59,7 +65,7 @@
                 clearInterval(animateTimer);
                 $timer.stop();
                 $timer.css("opacity", '1.0');
-                $timer.css("background-color", "chocolate");
+                $timer.css("background-color", "#F9974E");
             });
 
             function startTimer() {
@@ -91,15 +97,42 @@
                 $timer.animate({opacity: '1.0'}, 1000);
             }
 
+            $("body").css({
+                fontFamily: "Homemade Apple",
+                fontWeight: "400",
+                fontStyle: "normal",
+                color: "white",
+                backgroundColor: "#FAD793"
+            });
+            
+            $(".wrapper").css({
+                display: "grid",
+                justifyContent: "center",
+                flexDirection: "column",
+                marginTop: "20px",
+                backgroundColor: "#263F3B",
+                borderRadius: "50px",
+                border: "10px solid #F9974E"
+            });
+
+            $("h1").css({
+                fontSize: "35px",
+                marginLeft: "65px"
+            });
+
+
             // add css to timer
             $("#timer").css({
                 padding: "10px",
+                paddingLeft: "200px",
+                paddingRight: "200px",
                 borderRadius: "20px",
                 marginTop: "10px",
                 textAlign: "center",
-                fontSize: "25px",
+                fontSize: "30px",
                 color: "white",
-                backgroundColor: "chocolate"
+                backgroundColor: "#F9974E"
+                
             });
             
             // style buttons/add class name
@@ -110,9 +143,16 @@
             $(".controls").css({
                 backgroundColor: "black",
                 color: "white",
-                fontSize: "15px",
-                borderRadius: "50%"
+                fontSize: "20px",
+                marginBottom: "20px",
+                borderRadius: "50%",
+                fontFamily: "Homemade Apple",
+                fontWeight: "400",
+                fontStyle: "normal",
+                marginLeft: "65px",
+                border: "5px solid #F9974E"
             });
+
 
         });
     </script>
@@ -120,12 +160,17 @@
 
 <body>
     <div class="wrapper">
-        <h1>Stopwatch</h1>
-        <h2>Vanilla JavaScript Stopwatch</h2>
-        <p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
-        <button id="button-start">Start</button>
-        <button id="button-stop">Stop</button>
-        <button id="button-reset">Reset</button>
+        <figure>
+            <h1>JQuery Stopwatch</h1>
+        </figure>
+        <figure>
+            <p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
+        </figure>
+        <figure>
+            <button id="button-start">Start</button>
+            <button id="button-stop">Stop</button>
+            <button id="button-reset">Reset</button>
+        </figure>
     </div>
 </body>
 
