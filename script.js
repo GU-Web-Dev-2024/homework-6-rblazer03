@@ -1,5 +1,8 @@
 $(window).ready(function () {
-    var cssFile = $.ajax({ type:'GET', url:'https://gu-web-dev-2024.github.io/homework-6-rblazer03/style.css', dataType:'text' });
+
+    // Not 100% finished: Resources must be listed in the web_accessible_resources manifest key in order to be loaded by pages outside the extension.
+    // But it works
+    $.ajax({ type:'GET', url:'https://gu-web-dev-2024.github.io/homework-6-rblazer03/style.css', dataType:'text' });
 
     var seconds = "00";
     var tens = "00";
@@ -11,18 +14,6 @@ $(window).ready(function () {
     var $timer = $('#timer');
     var interval;
     var animateTimer;
-
-    // Load the CSS file using AJAX (doesn't work, needs CORS)
-    // $.ajax({
-    //     url: "style.css",
-    //     dataType: "text",
-    //     success: function(data) {
-    //         $("<style>").text(data).appendTo("head");
-    //     },
-    //     error: function() {
-    //         console.error("Could not load CSS file.");
-    //     }
-    // });
 
     $buttonStart.click(function () {
         clearInterval(interval);
