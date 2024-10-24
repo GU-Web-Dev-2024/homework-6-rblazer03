@@ -20,15 +20,33 @@
             var $buttonStart = jQuery(document.getElementById('button-start'));
             var $buttonStop = jQuery(document.getElementById('button-stop'));
             var $buttonReset = jQuery(document.getElementById('button-reset'));
+            var $timer = jQuery(document.getElementById('timer'));
             var interval;
+            var animateTimer;
+            var running;
 
             $buttonStart.click(function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
+                
+                $timer.css("background-color", "green");
+                clearInterval(animateTimer);
+                $timer.animate({opacity: '0.5'}, 1000);
+                $timer.animate({opacity: '1.0'}, 1000);
+                animateTimer = setInterval(timerAnimation, 2000);
             });
 
             $buttonStop.click(function () {
                 clearInterval(interval);
+
+                if( !($("#tens").text() === "00" && $("#seconds").text() === "00") ){
+                    //$timer.stop();
+                    $timer.stop();
+                    clearInterval(animateTimer);
+                    $timer.stop();
+                    $timer.css("opacity", '1.0');
+                    $timer.css("background-color", "red");
+                }
             });
 
             $buttonReset.click(function () {
@@ -37,6 +55,12 @@
                 seconds = "00";
                 $appendTens.text(tens);
                 $appendSeconds.text(seconds);
+
+                $timer.stop();
+                clearInterval(animateTimer);
+                $timer.stop();
+                $timer.css("opacity", '1.0');
+                $timer.css("background-color", "chocolate");
             });
 
             function startTimer() {
@@ -63,6 +87,10 @@
                     $appendSeconds.text(seconds);
                 }
             }
+            function timerAnimation(){
+                $timer.animate({opacity: '0.5'}, 1000);
+                $timer.animate({opacity: '1.0'}, 1000);
+            }
 
             // css starts
             $("#timer").css({
@@ -74,18 +102,7 @@
                 color: "white",
                 backgroundColor: "chocolate"
             });
-            $("#button-start").on("click", function() {
-                $("#timer").css("background-color", "green");
-            });
-            $("#button-stop").on("click", function() {
-                if( !($("#tens").text() === "00" && $("#seconds").text() === "00") ){
-                    $("#timer").css("background-color", "red");
-                }
-            });
-            $("#button-reset").on("click", function() {
-                $("#timer").css("background-color", "chocolate");
-            });
-
+            
             // style buttons/add class name
             $("#button-start").addClass("controls");
             $("#button-stop").addClass("controls");
